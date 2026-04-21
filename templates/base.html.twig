@@ -24,13 +24,19 @@
             <nav>         
                 <a href="/" class="current">Home</a>
                 <a href="/projects">Projects</a>
-                <a href="/substations/">Substations</a>
-                <a href="/consultants/">Consultants</a>
+                <a href="/substations">Substations</a>
+                <a href="/consultants">Consultants</a>
                 <a href="/contractors">Contractors</a>
                 <a href="/users">Users</a>
             </nav>
             <h1>DocMan</h1>
-            <p>Placeholder for user login status</p>
+            <p>
+            {% if app.user %}
+                User <b>{{ app.user.email }}</b> is logged in.  [<a href="{{ path('app_userLogout') }}">Logout</a>   or   <a href="{{ path('app_userEdit') }}">Edit</a>]
+            {% else %}
+                You are not logged in. Please <a href="{{ path('app_userRegister') }}">Register</a> or <a href="{{ path('app_userLogin') }}">Sign in</a>
+            {% endif %}
+            </p>
         </header>
         {% block body %}{% endblock %}
     </body>

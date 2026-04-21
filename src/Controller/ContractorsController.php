@@ -6,14 +6,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class HomeController extends AbstractController
+final class ContractorsController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
+    #[Route('/contractors', name: 'app_contractors')]
     public function index(): Response
     {
         if (!$this->getUser())
             return $this->redirectToRoute('app_userLogin');
         else
-            return $this->render('home/index.html.twig');
+            return $this->render('contractors/index.html.twig', [
+                
+            ]);
     }
 }
