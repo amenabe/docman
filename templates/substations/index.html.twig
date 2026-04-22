@@ -4,7 +4,27 @@
 
 {% block body %}
 
-<h1>Substations</h1>
-
-
+<h3>Substations</h3>
+<table>
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Code</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Projects</th>
+</tr>
+</thead>
+<tbody>
+{% for row in substations %}
+<tr>
+<td>{{ row.id }}</td>
+<td>{{ row.code }}</td>
+<td>{{ row.title }}</td>
+<td>{{ row.description }}</td>
+<td>{{ row.projects | join(', ') }}</td>
+</tr>
+{% endfor %}
+</tbody>    
+</table>
 {% endblock %}

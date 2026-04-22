@@ -3,9 +3,32 @@
 {% block title %}Projects{% endblock %}
 
 {% block body %}
-
-<h1>Projects</h1>
-
-
+<h3>Projects</h3>
+<table>
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Code</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Substations Involved</th>
+    <th>Consultant</th>
+    <th>Contractor</th>
+</tr>
+</thead>
+<tbody>
+{% for row in projects %}
+<tr>
+<td>{{ row.id }}</td>
+<td>{{ row.code }}</td>
+<td>{{ row.title }}</td>
+<td>{{ row.description }}</td>
+<td>{{ row.substations | join(', ') }}</td>
+<td>{{ row.consultant }}</td>
+<td>{{ row.contractor }}</td>
+</tr>
+{% endfor %}
+</tbody>    
+</table>
 {% endblock %}
 
