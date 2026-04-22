@@ -13,7 +13,10 @@
             label: 'Password'
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
-
+        {{ form_row(registrationForm.picture, {
+            label: 'Picture'
+        }) }}
+        <p>
         <button type="submit" class="btn">Register</button>
     {{ form_end(registrationForm) }}
 {% endblock %}

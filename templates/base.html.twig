@@ -9,7 +9,9 @@
         {% endblock %}
 
         {% block javascripts %}
+            <!--
             {% block importmap %}{{ importmap('app') }}{% endblock %}
+            -->
         {% endblock %}
 
         {% set frankenphpHotReload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
@@ -37,7 +39,6 @@
             {% else %}
                 You are not logged in. Please <a href="{{ path('app_userRegister') }}">Register</a> or <a href="{{ path('app_userLogin') }}">Sign in</a>
             {% endif %}
-            </p>
         </header>
         {% block body %}{% endblock %}
     </body>

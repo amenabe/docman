@@ -33,6 +33,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    /**
+     * @var string The file contents
+     */
+    #[ORM\Column(type: 'blob', nullable: true)]
+    private $picture;
+
+    /**
+     * @var string Picture extension, e.g. jpg, png
+     */
+    #[ORM\Column(type: 'string', length: 5, nullable: true)]
+    private ?string $pictype = null;
+
+
+       
+    public function setId(?int $id): static
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -49,6 +70,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
 
     /**
      * A visual identifier that represents this user.
@@ -93,6 +115,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPassword(string $password): static
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    public function setPicture($picture): self
+    {
+        $this->picture = $picture;
+        return $this;
+    }
+
+    public function getPicType(): ?string
+    {
+        return $this->pictype;
+    }
+
+    public function setPicType(string $pictype): static
+    {
+        $this->pictype = $pictype;
 
         return $this;
     }

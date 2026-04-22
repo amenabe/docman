@@ -66,14 +66,24 @@ class SecurityController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Process the password
             $plainPassword = $form->get('plainPassword')->getData();
-
             $hashedPassword = $userPasswordHasher->hashPassword(
                 $user,
                 $plainPassword
             );
             $user->setPassword($hashedPassword);
 
+            // Process the uploaded image file
+            $picFile = $form->get('picture')->getData();
+            if ($picFile) {
+                $origFilename = $picFile->getClientOriginalName();
+                $newFilename = uniqid(true).'.'.$picFile->guessExtension();
+                $binaryData = file_get_contents($picFile->getPathname());
+                $user->setPicType($picFile->guessExtension());  // we'll use this in for the mimetype
+                $user->setPicture($binaryData);
+            }
+                
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -84,6 +94,8 @@ class SecurityController extends AbstractController
             'usereditForm' => $form,
         ]);
     }
+
+
 
     #[Route(path: '/user/logout', name: 'app_userLogout')]
     public function userLogout(): void

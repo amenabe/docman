@@ -14,8 +14,13 @@
         {{ form_row(usereditForm.plainPassword, {
             label: 'Password'
         }) }}
-
+        {{ form_row(usereditForm.picture, {
+            label: 'Photo',
+        }) }}
+        <div>
+            <img src="" alt="" style="width:100px;height:100px;">
+        </div>
         <button type="submit" class="btn">Save</button>
     {{ form_end(usereditForm) }}
-    
+
 {% endblock %}

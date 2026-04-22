@@ -5,10 +5,12 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
@@ -39,6 +41,18 @@ class UserEditFormType extends AbstractType
                         // max length allowed by Symfony for security reasons
                         max: 4096,
                     ),
+                ],
+            ])
+            ->add('picture', FileType::class, [
+                'label' => 'Profile Picture (Image file)',
+                'mapped' => false, // Field not associated with any entity property
+                'required' => false,
+                'constraints' => [
+                    new File(
+                        maxSize: '2M',
+                        mimeTypes: ['image/jpeg', 'image/png'],
+                        mimeTypesMessage: 'Please upload a valid JPG or PNG image with a max filesize of 2MB',
+                    )
                 ],
             ])
         ;
