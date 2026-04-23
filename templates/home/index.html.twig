@@ -6,5 +6,18 @@
 
 <h3>Home</h3>
 
+{% if app.user %}
+    <div>
+    {% if image_data is empty %}
+        <img id="photo" src="{{ asset('png/no_image_available.png') }}" width="80px" height="80px" />
+    {% else %}
+        <img id="photo" src="data:{{ mime_type }};base64,{{ image_data }}" width="80px" height="80px" />
+    {% endif %}
+    </div>
+    <div>
+    {{ app.user.userIdentifier }}!
+    </div>    
+{% endif %}
+
 
 {% endblock %}

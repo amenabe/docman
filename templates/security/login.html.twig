@@ -4,6 +4,12 @@
 
 {% block body %}
 
+    {% if error %}
+        <div class="notice">
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
+    {% endif %}
+
     <form method="post">
         <h3 class="h3 mb-3 font-weight-normal">Please sign in</h3>
         <label for="username">Email</label>
