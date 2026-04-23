@@ -50,18 +50,20 @@ class RegistrationFormType extends AbstractType
                         minMessage: 'Your password should be at least {{ limit }} characters',
                         // max length allowed by Symfony for security reasons
                         max: 4096,
+                        maxMessage: 'Your password should be at most {{ limit }} characters',
                     ),
                 ],
             ])
             ->add('picture', FileType::class, [
-                'label' => 'Profile Picture (Image file)',
+                'label' => 'Picture (Image file)',
+                'attr' => ['accept' => 'image/png, image/jpeg'],
                 'mapped' => false, // Field not associated with any entity property
                 'required' => false,
                 'constraints' => [
                     new File(
                         maxSize: '2M',
                         mimeTypes: ['image/jpeg', 'image/png'],
-                        mimeTypesMessage: 'Please upload a valid JPG or PNG image',
+                        mimeTypesMessage: 'Please upload a valid JPG or PNG image with a max filesize of 2MB',
                     )
                 ],
             ])

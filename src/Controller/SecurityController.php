@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mime\MimeTypes;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -45,6 +46,16 @@ class SecurityController extends AbstractController
             // encode the plain password
             $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
 
+            // Process the uploaded image file
+            $picFile = $form->get('picture')->getData();
+            if ($picFile) {
+                //$origFilename = $picFile->getClientOriginalName();
+                //$newFilename = uniqid(true).'.'.$picFile->guessExtension();
+                $binaryData = file_get_contents($picFile->getPathname());
+                $user->setPicType($picFile->guessExtension());
+                $user->setPicture($binaryData);
+            }
+
             $entityManager->persist($user);
             $entityManager->flush();
 
@@ -68,30 +79,50 @@ class SecurityController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // Process the password
             $plainPassword = $form->get('plainPassword')->getData();
-            $hashedPassword = $userPasswordHasher->hashPassword(
-                $user,
-                $plainPassword
-            );
-            $user->setPassword($hashedPassword);
-
+            // Only save a non-blank plainPassword with a valid length
+            if ($plainPassword) {
+                $hashedPassword = $userPasswordHasher->hashPassword(
+                    $user,
+                    $plainPassword
+                );
+                $user->setPassword($hashedPassword);
+            }
+            
             // Process the uploaded image file
             $picFile = $form->get('picture')->getData();
             if ($picFile) {
-                $origFilename = $picFile->getClientOriginalName();
-                $newFilename = uniqid(true).'.'.$picFile->guessExtension();
+                //$origFilename = $picFile->getClientOriginalName();
+                //$newFilename = uniqid(true).'.'.$picFile->guessExtension();
                 $binaryData = file_get_contents($picFile->getPathname());
-                $user->setPicType($picFile->guessExtension());  // we'll use this in for the mimetype
+                $user->setPicType($picFile->guessExtension());
                 $user->setPicture($binaryData);
             }
-                
+
             $entityManager->persist($user);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_userLogout');
         }
 
+        // Also, pass the current user's photo to the form rendered
+        $image_data = null;
+        $mime_type = null;
+        
+        $photo = $user->getPicture();
+        if ($photo) {
+            $image_data = base64_encode(stream_get_contents($photo));
+            
+            $mimeTypes = new MimeTypes();
+            // Returns an array of MIME types associated with the extension (e.g., ['image/jpeg', 'image/pjpeg'])
+            $types = $mimeTypes->getMimeTypes($user->getPicType());
+            // Typically, you want the first/most common result
+            $mime_type = $types[0] ?? null;
+        }
+        
         return $this->render('security/edit.html.twig', [
             'usereditForm' => $form,
+            'mime_type' => $mime_type,
+            'image_data' => $image_data
         ]);
     }
 

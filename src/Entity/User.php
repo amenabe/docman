@@ -37,7 +37,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The file contents
      */
     #[ORM\Column(type: 'blob', nullable: true)]
-    private $picture;
+    private $picture = null;
 
     /**
      * @var string Picture extension, e.g. jpg, png
@@ -119,7 +119,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    
     public function getPicture()
     {
         return $this->picture;
@@ -128,6 +127,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setPicture($picture): self
     {
         $this->picture = $picture;
+
         return $this;
     }
 

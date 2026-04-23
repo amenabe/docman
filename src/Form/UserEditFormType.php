@@ -31,20 +31,25 @@ class UserEditFormType extends AbstractType
                 // this is read and encoded in the controller
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
+                'required' => false,
                 'constraints' => [
+                    /*
                     new NotBlank(
                         message: 'Please enter a password',
                     ),
+                    */
                     new Length(
                         min: 6,
                         minMessage: 'Your password should be at least {{ limit }} characters',
                         // max length allowed by Symfony for security reasons
                         max: 4096,
+                        maxMessage: 'Your password should be at most {{ limit }} characters',
                     ),
                 ],
             ])
             ->add('picture', FileType::class, [
-                'label' => 'Profile Picture (Image file)',
+                'label' => 'Picture (Image file)',
+                'attr' => ['accept' => 'image/png, image/jpeg'],
                 'mapped' => false, // Field not associated with any entity property
                 'required' => false,
                 'constraints' => [

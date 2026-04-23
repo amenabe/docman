@@ -11,16 +11,41 @@
         {{ form_row(usereditForm.email,
             {'attr': {'readonly': 'readonly'}}
         ) }}
+        
         {{ form_row(usereditForm.plainPassword, {
-            label: 'Password'
+            label: 'Password',
         }) }}
+        
+        <table><tr><td>
+        {% if image_data is empty %}
+            <img id="photo" src="{{ asset('png/no_image_available.png') }}" width="80px" height="80px" />
+        {% else %}
+            <img id="photo" src="data:{{ mime_type }};base64,{{ image_data }}" width="80px" height="80px" />
+        {% endif %}
         {{ form_row(usereditForm.picture, {
-            label: 'Photo',
+            label: 'Picture',
         }) }}
+        </td></tr></table>
+
         <div>
-            <img src="" alt="" style="width:100px;height:100px;">
-        </div>
         <button type="submit" class="btn">Save</button>
+        </div>
     {{ form_end(usereditForm) }}
+
+<script>
+    const fileInput = document.getElementById('user_edit_form_picture');
+    const previewImage = document.getElementById('photo');
+
+    fileInput.addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+            // Create a temporary URL
+            const imageUrl = URL.createObjectURL(e.target.files[0]);
+            previewImage.src = imageUrl;
+            
+            // Revoke the URL to free up memory after the image loads
+            previewImage.onload = () => URL.revokeObjectURL(imageUrl);
+        }
+    });
+</script>
 
 {% endblock %}
