@@ -24,30 +24,29 @@
 
 
 >### 3. Download the source code from the repo using the command
-
+```
         git clone https://github.com/amenabe/docman.git
-
+```
 
 >### 4. Change directory to the downloaded source code
-
+```
         cd docman
-
+```
 
 >### 5. Open the docman folder in Visual Studio Code
-
+```
         code .
-
+```
 
 >### 6. From Visual Studio Code main menu, start a terminal
-
+```
         View->Terminal
-
+```
 
 >### 7. From the Terminal, execute the following:
 ```
         composer require symfony/orm-pack
 ```
-
 ```
         composer require --dev symfony/maker-bundle
 ```
