@@ -9,7 +9,6 @@
         extension=openssl
         extension=pdo_sqlite
 
-
 ## B. Install Composer
 
 ## C. Install Symfony CLI
