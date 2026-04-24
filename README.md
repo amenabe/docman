@@ -20,24 +20,30 @@
 ## F. Get the source code from the Github repository
 
     1. Open a Powershell, DOS Command or Terminal window
+    
 
     2. Change directory to your Symfony projects folder
+
 
     3. Download the source code from the repo using the command
 
         git clone https://github.com/amenabe/docman.git
 
+
     4. Change directory to the downloaded source code
 
         cd docman
+
 
     5. Open the docman folder in Visual Studio Code
 
         code .
 
+
     7. From Visual Studio Code main menu, start a terminal
 
         View->Terminal
+
 
     8. From the Terminal, execute the following:
 
@@ -51,11 +57,13 @@
 
         php bin/console doctrine:migrations:migrate
 
-    9. Start the web server on port 8000 using Symfony's built-in web server
+
+    9. Start Symfony's built-in web server on port 8000
 
         Localhost only:
 
             symfony serve
+
             
         External hosts in addition to localhost:
 
