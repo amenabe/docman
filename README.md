@@ -3,6 +3,7 @@ Quick how to:
 A. Install PHP
     - PHP version 8.5
     - php.ini must have the following uncommented:
+    
         extension=openssl
         extension=pdo_sqlite
 
