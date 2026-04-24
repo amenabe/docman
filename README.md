@@ -5,10 +5,10 @@
     1. At least PHP version 8.5
 
     2. The **php.ini** must have the following uncommented:
-        ```
-        extension=openssl
-        extension=pdo_sqlite
-        ```
+```
+extension=openssl
+extension=pdo_sqlite
+```
 
 ## B. Install Composer
 
