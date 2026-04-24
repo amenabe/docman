@@ -1,4 +1,4 @@
-# Quick how to:
+# Quick How-To
 
 ## A. Install PHP
 
