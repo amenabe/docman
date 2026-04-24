@@ -14,11 +14,7 @@
 ## F. Get the source code from the Github repository
 
 >### 1. Open a Powershell, DOS Command or Terminal window
-
-
 >### 2. Change directory to your Symfony projects folder
-
-
 >### 3. Download the source code from the repo using the command
 ```
         git clone https://github.com/amenabe/docman.git
@@ -60,13 +56,13 @@
 ```
 
 >### 8. Start Symfony's built-in web server on port 8000
->Web browser from localhost only:
+> Web browser from localhost only:
 
->```
->            symfony serve
->```
+```
+        symfony serve
+```
             
->Web browsers from external hosts too:
->```
->            symfony serve --allow-all-ip
->```
+> Web browsers from external hosts too:
+```
+        symfony serve --allow-all-ip
+```
