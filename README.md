@@ -11,6 +11,7 @@ This is a work in progress... no specific timeline.
 ### &emsp;&emsp;2. The php.ini must have the following uncommented:
 ```
         extension=openssl
+        extension=fileinfo
         extension=pdo_sqlite
 ```
 ## B. Install Composer
