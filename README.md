@@ -20,56 +20,50 @@ extension=pdo_sqlite
 ## E. Install Visual Studio Code
 ## F. Get the source code from the Github repository
 
-### &emsp;&emsp;1. Open a Powershell, DOS Command or Terminal window
-### &emsp;&emsp;2. Change directory to your Symfony projects folder
-### &emsp;&emsp;3. Download the source code from the repo using the command
+### &emsp;1. Open a Powershell, DOS Command or Terminal window
+### &emsp;2. Change directory to your Symfony projects folder
+### &emsp;3. Download the source code from the repo using the command
 ```
-        git clone https://github.com/amenabe/docman.git
-```
-
-### &emsp;&emsp;4. Change directory to the downloaded source code
-```
-        cd docman
+git clone https://github.com/amenabe/docman.git
 ```
 
-### &emsp;&emsp;5. Open the docman folder in Visual Studio Code
+### &emsp;4. Change directory to the downloaded source code
 ```
-        code .
-```
-
-### &emsp;&emsp;6. From Visual Studio Code main menu, start a terminal
-```
-        Main Menu -> View -> Terminal
+cd docman
 ```
 
-### &emsp;&emsp;7. From the Terminal, execute the following:
+### &emsp;5. Open the docman folder in Visual Studio Code
 ```
-        composer require symfony/orm-pack
-```
-```
-        composer require --dev symfony/maker-bundle
+code .
 ```
 
+### &emsp;6. From Visual Studio Code main menu, start a terminal
 ```
-        symfony make:migration
-```
-
-```
-        php bin/console make:migration
+Main Menu -> View -> Terminal
 ```
 
+### &emsp;7. From the Terminal, execute the following:
 ```
-        php bin/console doctrine:migrations:migrate
+composer require symfony/orm-pack
 ```
-### &emsp;&emsp;8. Start Symfony's built-in web server on port 8000
-&emsp;&emsp;&emsp;&emsp;Web browser from localhost only:
-
 ```
-        symfony serve
+composer require --dev symfony/maker-bundle
 ```
-            
-&emsp;&emsp;&emsp;&emsp;Web browsers from external hosts too:
-
+```
+symfony make:migration
+```
+```
+php bin/console make:migration
+```
+```
+php bin/console doctrine:migrations:migrate
+```
+### &emsp;8. Start Symfony's built-in web server on port 8000
+&emsp;Web browser from localhost only:
+```
+symfony serve
+```          
+&emsp;Web browsers from external hosts too:
 ```
         symfony serve --allow-all-ip
 ```
