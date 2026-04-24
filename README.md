@@ -60,13 +60,13 @@
 ```
 
 >### 8. Start Symfony's built-in web server on port 8000
->>>>#### Web browser from localhost only:
+    Web browser from localhost only:
 
 ```
             symfony serve
 ```
             
->>>>#### Web browsers from external hosts too:
+    Web browsers from external hosts too:
 ```
             symfony serve --allow-all-ip
 ```
