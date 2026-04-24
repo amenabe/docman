@@ -2,22 +2,23 @@
 
 ## A. Install PHP
 
-    ### - PHP version 8.5
+    1. At least PHP version 8.5
 
-    ### - php.ini must have the following uncommented:
-
+    2. The **php.ini** must have the following uncommented:
+        ```
         extension=openssl
         extension=pdo_sqlite
+        ```
 
 ## B. Install Composer
 
-C. Install Symfony CLI
+## C. Install Symfony CLI
 
-D. Install git
+## D. Install git
 
-E. Install Visual Studio Code
+## E. Install Visual Studio Code
 
-F. Use the source code from the github repository
+## F. Use the source code from the github repository
 
     1. Open a Powershell, DOS Command or Terminal window
 
