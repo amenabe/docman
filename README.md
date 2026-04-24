@@ -1,34 +1,48 @@
 Quick how to:
 
-1. Open a Windows command window
+A. Install PHP
+    - PHP version 8.5
+    - php.ini must have the following uncommented:
+        extension=openssl
+        extension=pdo_sqlite
 
-2. Change directory to your Symfony folder
+B. Install Composer
 
-3. Download the source code from the repo
-    git clone https://github.com/amenabe/docman.git
-    https://github.com/amenabe/docman/archive/refs/heads/main.zip
+C. Install Symfony CLI
 
-4. Change directory to the downloaded source code
-    cd docman
+D. Install git
 
-5. Open the docman folder in Visual Studio Code
+E. Install Visual Studio Code
 
-7. From Visual Studio Code main menu, start a terminal
-    View->Terminal
+F. Use the source code from the github repository
+    1. Open a Windows command window
 
-8. Create the docman database by running the following commands
-    php bin/console make:migration
-    php bin/console doctrine:migrations:migrate
+    2. Change directory to your Symfony projects folder
 
-9. Start the web server on port 8000 using any one of the following options
-    Option 1: Using the integrated server in Symfony, run the following command
-               symfony serve
-   
-    Option 2: Using php, run the following command
-               php -S localhost:8000
+    3. Download the source code from the repo using the command
+        git clone https://github.com/amenabe/docman.git
 
-    Option 3: Using any other server (nginx, apache, etc) as long as it's listening on port 8000
+    4. Change directory to the downloaded source code
+        cd docman
 
+    5. Open the docman folder in Visual Studio Code
+
+    7. From Visual Studio Code main menu, start a terminal
+        View->Terminal
+
+    8. Execute the following:
+        composer require symfony/orm-pack
+        composer require --dev symfony/maker-bundle
+        symfony make:migration
+        php bin/console make:migration
+        php bin/console doctrine:migrations:migrate
+
+    9. Start the web server on port 8000 using Symfony's built-in web server
+        Localhost only:
+            symfony serve
+            
+        External hosts in addition to localhost:
+            symfony serve --allow-all-ip
 
 Miles
 
