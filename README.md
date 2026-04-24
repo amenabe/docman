@@ -16,6 +16,7 @@ D. Install git
 E. Install Visual Studio Code
 
 F. Use the source code from the github repository
+
     1. Open a Windows command window
 
     2. Change directory to your Symfony projects folder
@@ -41,7 +42,7 @@ F. Use the source code from the github repository
         symfony make:migration
 
         php bin/console make:migration
-        
+
         php bin/console doctrine:migrations:migrate
 
     9. Start the web server on port 8000 using Symfony's built-in web server
