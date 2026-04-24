@@ -18,33 +18,33 @@
 
 ## F. Get the source code from the Github repository
 
-## 1. Open a Powershell, DOS Command or Terminal window
+### 1. Open a Powershell, DOS Command or Terminal window
 
 
-## 2. Change directory to your Symfony projects folder
+### 2. Change directory to your Symfony projects folder
 
 
-## 3. Download the source code from the repo using the command
+### 3. Download the source code from the repo using the command
 
         git clone https://github.com/amenabe/docman.git
 
 
-## 4. Change directory to the downloaded source code
+### 4. Change directory to the downloaded source code
 
         cd docman
 
 
-## 5. Open the docman folder in Visual Studio Code
+### 5. Open the docman folder in Visual Studio Code
 
         code .
 
 
-## 6. From Visual Studio Code main menu, start a terminal
+### 6. From Visual Studio Code main menu, start a terminal
 
         View->Terminal
 
 
-## 7. From the Terminal, execute the following:
+### 7. From the Terminal, execute the following:
 ```
         composer require symfony/orm-pack
 ```
@@ -65,14 +65,14 @@
         php bin/console doctrine:migrations:migrate
 ```
 
-## 8. Start Symfony's built-in web server on port 8000
-### Localhost only:
+### 8. Start Symfony's built-in web server on port 8000
+#### Localhost only:
 
 ```
             symfony serve
 ```
             
-### External hosts in addition to localhost:
+#### External hosts in addition to localhost:
 ```
             symfony serve --allow-all-ip
 ```
