@@ -8,13 +8,9 @@
         extension=pdo_sqlite
 ```
 ## B. Install Composer
-
 ## C. Install Symfony CLI
-
 ## D. Install Git
-
 ## E. Install Visual Studio Code
-
 ## F. Get the source code from the Github repository
 
 >### 1. Open a Powershell, DOS Command or Terminal window
@@ -64,13 +60,13 @@
 ```
 
 >### 8. Start Symfony's built-in web server on port 8000
->>>>#### Localhost only:
+>>>>#### Web browser from localhost only:
 
 ```
             symfony serve
 ```
             
->>>>#### External hosts in addition to localhost:
+>>>>#### Web browsers from external hosts too:
 ```
             symfony serve --allow-all-ip
 ```
