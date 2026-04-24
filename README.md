@@ -1,10 +1,10 @@
-Quick how to:
+#Quick how to:
 
-A. Install PHP
+##A. Install PHP
 
-    - PHP version 8.5
+    ###- PHP version 8.5
 
-    - php.ini must have the following uncommented:
+    ###- php.ini must have the following uncommented:
 
         extension=openssl
         extension=pdo_sqlite
@@ -58,7 +58,7 @@ F. Use the source code from the github repository
             `symfony serve`
             
         External hosts in addition to localhost:
-        
+
             `symfony serve --allow-all-ip`
 
 Miles
