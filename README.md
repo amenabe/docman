@@ -38,7 +38,7 @@ This is a work in progress... no specific timeline.
 
 ### &emsp;&emsp;6. From Visual Studio Code main menu, start a terminal
 ```
-        View->Terminal
+        Main Menu -> View -> Terminal
 ```
 
 ### &emsp;&emsp;7. From the Terminal, execute the following:
