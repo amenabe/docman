@@ -20,7 +20,7 @@ final class MediaController extends AbstractController
     }
 
     #[Route('/media/{filename}', name: 'app_media_server')]
-    public function mediaServer(EntityManagerInterface $entityManager, string $filename)
+    public function mediaServe(EntityManagerInterface $entityManager, string $filename)
     {
         // 1. Check if user is logged in
         $user = $this->getUser();
@@ -39,4 +39,7 @@ final class MediaController extends AbstractController
         $filepath = join(DIRECTORY_SEPARATOR, [$this->getParameter('kernel.project_dir'), 'var', 'storage', 'media', $user->getId() , $fn ]);
         return new BinaryFileResponse($filepath);
     }
+
+    
+
 }
