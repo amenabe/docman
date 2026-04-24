@@ -65,6 +65,6 @@ symfony serve
 ```          
 &emsp;Web browsers from external hosts too:
 ```
-        symfony serve --allow-all-ip
+symfony serve --allow-all-ip
 ```
 
