@@ -45,29 +45,37 @@
 
 
 ## 7. From the Terminal, execute the following:
-
+```
         composer require symfony/orm-pack
+```
 
+```
         composer require --dev symfony/maker-bundle
+```
 
+```
         symfony make:migration
+```
 
+```
         php bin/console make:migration
+```
 
+```
         php bin/console doctrine:migrations:migrate
-
+```
 
 ## 8. Start Symfony's built-in web server on port 8000
+### Localhost only:
 
-        Localhost only:
-
+```
             symfony serve
-
+```
             
-        External hosts in addition to localhost:
-
+### External hosts in addition to localhost:
+```
             symfony serve --allow-all-ip
-
+```
 
 
 
