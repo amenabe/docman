@@ -1,7 +1,9 @@
 Quick how to:
 
 A. Install PHP
+
     - PHP version 8.5
+
     - php.ini must have the following uncommented:
 
         extension=openssl
@@ -26,11 +28,13 @@ F. Use the source code from the github repository
         git clone https://github.com/amenabe/docman.git
 
     4. Change directory to the downloaded source code
+
         cd docman
 
     5. Open the docman folder in Visual Studio Code
 
     7. From Visual Studio Code main menu, start a terminal
+
         View->Terminal
 
     8. Execute the following:
@@ -46,6 +50,7 @@ F. Use the source code from the github repository
         php bin/console doctrine:migrations:migrate
 
     9. Start the web server on port 8000 using Symfony's built-in web server
+    
         Localhost only:
             symfony serve
             
