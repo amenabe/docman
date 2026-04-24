@@ -1,15 +1,15 @@
-#Quick how to:
+# Quick how to:
 
-##A. Install PHP
+## A. Install PHP
 
-    ###- PHP version 8.5
+    ### - PHP version 8.5
 
-    ###- php.ini must have the following uncommented:
+    ### - php.ini must have the following uncommented:
 
         extension=openssl
         extension=pdo_sqlite
 
-B. Install Composer
+## B. Install Composer
 
 C. Install Symfony CLI
 
