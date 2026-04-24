@@ -19,7 +19,7 @@ E. Install Visual Studio Code
 
 F. Use the source code from the github repository
 
-    1. Open a Windows command window
+    1. Open a command/terminal window
 
     2. Change directory to your Symfony projects folder
 
@@ -32,6 +32,8 @@ F. Use the source code from the github repository
         cd docman
 
     5. Open the docman folder in Visual Studio Code
+
+        code .
 
     7. From Visual Studio Code main menu, start a terminal
 
