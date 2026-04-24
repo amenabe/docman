@@ -2,13 +2,12 @@
 
 ## A. Install PHP
 
-    1. At least PHP version 8.5
-
-    2. The php.ini must have the following uncommented:
-
+### 1. At least PHP version 8.5
+### 2. The php.ini must have the following uncommented:
+```
         extension=openssl
         extension=pdo_sqlite
-
+```
 ## B. Install Composer
 
 ## C. Install Symfony CLI
