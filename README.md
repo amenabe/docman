@@ -20,7 +20,7 @@
 ## F. Get the source code from the Github repository
 
     1. Open a Powershell, DOS Command or Terminal window
-    
+
 
     2. Change directory to your Symfony projects folder
 
@@ -40,12 +40,12 @@
         code .
 
 
-    7. From Visual Studio Code main menu, start a terminal
+    6. From Visual Studio Code main menu, start a terminal
 
         View->Terminal
 
 
-    8. From the Terminal, execute the following:
+    7. From the Terminal, execute the following:
 
         composer require symfony/orm-pack
 
@@ -58,7 +58,7 @@
         php bin/console doctrine:migrations:migrate
 
 
-    9. Start Symfony's built-in web server on port 8000
+    8. Start Symfony's built-in web server on port 8000
 
         Localhost only:
 
@@ -69,7 +69,7 @@
 
             symfony serve --allow-all-ip
 
-Miles
+
 
 
         
