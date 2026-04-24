@@ -54,15 +54,16 @@
 ```
         php bin/console doctrine:migrations:migrate
 ```
-
 >### 8. Start Symfony's built-in web server on port 8000
-> Web browser from localhost only:
+<ul>Web browser from localhost only:</ul>
 
 ```
         symfony serve
 ```
             
-> Web browsers from external hosts too:
+<ul>Web browsers from external hosts too:</ul>
+
 ```
         symfony serve --allow-all-ip
 ```
+
