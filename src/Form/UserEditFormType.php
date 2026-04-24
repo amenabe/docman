@@ -33,7 +33,7 @@ class UserEditFormType extends AbstractType
                 'attr' => ['autocomplete' => 'new-password'],
                 'required' => false,
                 'constraints' => [
-                    /*
+                    /* If blank password, it means 'Do not change the current password'
                     new NotBlank(
                         message: 'Please enter a password',
                     ),

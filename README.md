@@ -7,12 +7,12 @@ This is a work in progress... no specific timeline.
 # Quick How-To
 
 ## A. Install PHP
-### &emsp;&emsp;1. At least PHP version 8.5
-### &emsp;&emsp;2. The php.ini must have the following uncommented:
+### &emsp;1. At least PHP version 8.5
+### &emsp;2. The php.ini must have the following uncommented:
 ```
-        extension=openssl
-        extension=fileinfo
-        extension=pdo_sqlite
+extension=openssl
+extension=fileinfo
+extension=pdo_sqlite
 ```
 ## B. Install Composer
 ## C. Install Symfony CLI
