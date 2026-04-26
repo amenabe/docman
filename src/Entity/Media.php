@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\MediaRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MediaRepository::class)]
@@ -11,70 +10,58 @@ class Media
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::GUID, unique: true)]
-    private ?string $uuid = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $fn_orig = null;
-
     #[ORM\Column(length: 5)]
-    private ?string $fn_ext = null;
+    private ?string $file_ext = null;
 
     #[ORM\Column(type: 'integer', options: ['unsigned' => true])]
-    private ?int $ownerid = null;
+    private ?int $owner_id = null;
+
+    #[ORM\Column(type: 'blob', nullable: true)]
+    private $file = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getGuid(): ?string
+
+    public function getFileExt(): ?string
     {
-        return $this->uuid;
+        return $this->file_ext;
     }
 
-    public function setGuid(string $guid): static
+    public function setFileExt(string $file_ext): self
     {
-        $this->uuid = $guid;
+        $this->file_ext = $file_ext;
 
         return $this;
     }
 
-    public function getFnOrig(): ?string
+
+    public function getOwnerId(): ?int
     {
-        return $this->fn_orig;
+        return $this->owner_id;
     }
 
-    public function setFnOrig(string $fn_orig): static
+    public function setOwnerId(int $owner_id): self
     {
-        $this->fn_orig = $fn_orig;
+        $this->owner_id = $owner_id;
 
         return $this;
     }
 
-    public function getFnExt(): ?string
+
+    public function getFileData()
     {
-        return $this->fn_ext;
+        return $this->file;
     }
 
-    public function setFnExt(string $fn_ext): static
+    public function setFileData($file_data): self
     {
-        $this->fn_ext = $fn_ext;
-
-        return $this;
-    }
-
-    public function getOwnerid(): ?int
-    {
-        return $this->ownerid;
-    }
-
-    public function setOwnerid(int $ownerid): static
-    {
-        $this->ownerid = $ownerid;
+        $this->file = $file_data;
 
         return $this;
     }
