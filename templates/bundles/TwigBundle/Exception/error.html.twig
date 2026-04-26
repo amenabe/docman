@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Access Denied{% endblock %}
+
+{% block body %}
+    <h1>{{status_code}} - {{status_text}}</h1>
+    
+    <p>You do not have permission to access this resource.</p>
+    <a href="{{ path('app_home') }}">Return to Homepage</a>
+{% endblock %}
