@@ -20,8 +20,9 @@ final class MediaController extends AbstractController
         ]);
     }
 
+    /*
     #[Route('/media/file/{filename}', name: 'media_from_file')]
-    public function mediaShow(EntityManagerInterface $entityManager, string $filename)
+    public function mediaFromFile(EntityManagerInterface $entityManager, string $filename): Response
     {
         // 1. Check if user is logged in
         $user = $this->getUser();
@@ -33,17 +34,24 @@ final class MediaController extends AbstractController
         $rec = $entityManager->getRepository(Media::class)->findOneBy(['uuid' => $filename]);
 
         // 3. Just pretend the missing file is not accessible by this user
-        if (!$rec) { throw $this->createAccessDeniedException(); }
+        if (!$rec) { 
+            throw $this->createAccessDeniedException();
+        }
         
         // 4. Serve it
         $fn = join(".", [$filename, $rec->getFileExt()]);
        
         $filepath = join(DIRECTORY_SEPARATOR, [$this->getParameter('kernel.project_dir'), 'var', 'storage', 'media', $user->getId() , $fn ]);
+
+        if (!file_exists($filepath))
+            throw $this->createAccessDeniedException();
+
         return new BinaryFileResponse($filepath);
     }
+    */
 
     #[Route('/media/db/{id<\d+>}', name: 'media_from_db')]
-    public function mediaTest(EntityManagerInterface $entityManager, int $id)
+    public function mediaFromDb(EntityManagerInterface $entityManager, int $id): Response
     {
         // 1. Check if user is logged in
         $user = $this->getUser();
